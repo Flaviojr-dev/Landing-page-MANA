@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Landing Page - Hero</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=Manrope:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff
+        }
+
+        /* HERO / HEADER */
+        header {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url("./assets/img/header.png") center/cover no-repeat;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            /* nav em cima, conteúdo abaixo */
+            align-items: center;
+        }
+
+        /* BLUR no topo (tipo vidro) */
+        .blur {
+            position: absolute;
+            inset: 0 auto auto 0;
+            width: 100%;
+            height: 63%;
+            background-color: #00000003;
+            border-bottom: 2px solid rgba(251, 251, 251, .29);
+            backdrop-filter: blur(32.65px) brightness(100%);
+            -webkit-backdrop-filter: blur(32.65px) brightness(100%);
+            z-index: 1;
+        }
+
+        /* NAVBAR (1200 x 82.39) */
+        nav {
+            width: 1200px;
+            height: 82.39px;
+            margin: 40px auto 0;
+            border: 0.9px solid #E5E1E6;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 3;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto
+        }
+
+        .menu {
+            display: flex;
+            gap: 50px
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+            transition: .3s
+        }
+
+        .menu a:hover {
+            color: #E5E1E6
+        }
+
+        /* CONJUNTO (textos à esquerda + botão à direita) */
+        .hero-row {
+            position: relative;
+            z-index: 2;
+            width: min(1200px, 92vw);
+            /* centraliza e casa com a nav */
+            margin: 50px auto 0;
+            /* ~50px do NAV até o H1 */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 48px;
+        }
+
+        .hero-texts {
+            max-width: 760px
+        }
+
+        .hero-texts h1 {
+            font-family: 'Inria Serif', serif;
+            font-weight: 400;
+            line-height: 1.15;
+            color: #FFFFFF;
+            font-size: clamp(32px, 6vw, 64px);
+            letter-spacing: .2px;
+            margin-bottom: 15px;
+            /* 11px até a descrição */
+        }
+
+        .hero-texts h1 em {
+            font-style: italic;
+            font-weight: 700
+        }
+
+        .descricao {
+            font-family: 'Inria Serif', serif;
+            font-size: clamp(16px, 1.6vw, 20px);
+            line-height: 1.55;
+            color: rgba(255, 255, 255, .8);
+            margin-top: 11px;
+        }
+
+        .descricao strong {
+            font-weight: 700;
+            color: #fff
+        }
+
+        /* Botão à direita (outline) */
+        .hero-button {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border: 1.62px solid #FFFFFF;
+            border-radius: 999px;
+            background: transparent;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            gap: 10px;
+            transition: background .25s ease;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, .10)
+        }
+
+        .btn img {
+            width: 22px;
+            height: auto
+        }
+
+        /* RESPONSIVO: empilha no mobile */
+        @media (min-width: 901px) {
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 14px 48px;
+                border: 1.62px solid #FFFFFF;
+                border-radius: 999px;
+                background: transparent;
+                color: #fff;
+                text-decoration: none;
+                font-family: 'Manrope', sans-serif;
+                font-weight: 600;
+                font-size: 16px;
+                gap: 10px;
+                transition: background .25s ease;
+                margin-top: 257px;
+            }
+
+        }
+
+        /* RESPONSIVO: empilha no mobile */
+        @media (max-width: 900px) {
+            nav {
+                display: none;
+                /* 🚫 Esconde a nav bar no mobile */
+            }
+
+            .hero-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px
+            }
+
+            .hero-button {
+                align-self: flex-start
+            }
+
+            .blur {
+                position: absolute;
+                inset: 0 auto auto 0;
+                width: 100%;
+                height: 75%;
+                background-color: #00000003;
+                border-bottom: 2px solid rgba(251, 251, 251, .29);
+                backdrop-filter: blur(32.65px) brightness(100%);
+                -webkit-backdrop-filter: blur(32.65px) brightness(100%);
+                z-index: 1;
+            }
+
+            header {
+                position: relative;
+                width: 100%;
+                height: 60vh;
+                background: url("./assets/img/header.png") center/cover no-repeat;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                /* nav em cima, conteúdo abaixo */
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="blur"></div>
+
+        <!-- NAVBAR -->
+        <nav>
+            <div class="logo">
+                <img src="assets/img/logo.png" alt="Logo">
+            </div>
+            <div class="menu">
+                <a href="#">Quem somos</a>
+                <a href="#">O que é</a>
+                <a href="#">Serviços</a>
+                <a href="#">Equipe</a>
+                <a href="#">Parcerias</a>
+            </div>
+        </nav>
+
+        <!-- CONJUNTO CENTRALIZADO: textos à esquerda + botão à direita -->
+        <div class="hero-row">
+            <div class="hero-texts">
+                <h1>Transforme sua saúde com <em>cuidado e propósito</em></h1>
+
+                <p class="descricao">
+                    Na Clínica Maná, unimos <strong>Pilates, Fisioterapia, Yoga, Odontologia e Dança</strong>
+                    para cuidar de você de forma integrada e acolhedora.
+                </p>
+
+                <p class="descricao">
+                    Nossa missão é <strong>transformar sua qualidade de vida com um atendimento humanizado</strong>,
+                    moderno e eficaz.
+                </p>
+            </div>
+
+            <div class="hero-button">
+                <a href="#" class="btn">
+                    FALE CONOSCO
+                    <img src="assets/img/Group 1.svg" alt="Seta">
+                </a>
+            </div>
+        </div>
+    </header>
+</body>
+
+</html>
