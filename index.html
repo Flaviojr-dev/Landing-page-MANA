@@ -151,7 +151,7 @@
             align-items: center;
             justify-content: center;
             padding: 14px 28px;
-            border: 1.62px solid #FFFFFF;
+            border: 1px solid #FFFFFF;
             border-radius: 999px;
             background: transparent;
             color: #fff;
@@ -174,12 +174,29 @@
 
         /* RESPONSIVO: empilha no mobile */
         @media (min-width: 901px) {
+            .blur {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                /* altura automática: até o final do conteúdo + espaço extra */
+                height: calc(100% - 20vh);
+                /* 🔥 ajusta esse valor para dar o "respiro" */
+                min-height: 500px;
+                /* garante que não fique pequeno demais */
+                background-color: rgba(0, 0, 0, 0.05);
+                border-bottom: 2px solid rgba(251, 251, 251, .29);
+                backdrop-filter: blur(32.65px) brightness(100%);
+                -webkit-backdrop-filter: blur(32.65px) brightness(100%);
+                z-index: 1;
+            }
+
             .btn {
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
                 padding: 14px 48px;
-                border: 1.62px solid #FFFFFF;
+                border: 1px solid #FFFFFF;
                 border-radius: 999px;
                 background: transparent;
                 color: #fff;
