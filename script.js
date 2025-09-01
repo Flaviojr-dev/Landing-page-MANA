@@ -4,3 +4,4 @@ const menuMobile = document.getElementById("menu-mobile");
 hamburger.addEventListener("click", () => {
     menuMobile.classList.toggle("active");
 });
+

@@ -172,6 +172,41 @@
             height: auto
         }
 
+        .hero-button-2 {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .btn-2 {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 48px;
+            border: 1px solid #752700;
+            border-radius: 999px;
+            background: transparent;
+            color: #752700;
+            text-decoration: none;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            gap: 10px;
+            transition: background .25s ease;
+            margin-top: 50px;
+        }
+
+        .btn-2:hover {
+            background: rgba(255, 255, 255, .10)
+        }
+
+        .btn-2 img {
+            width: 22px;
+            height: auto
+        }
+
+
 
 
         /* RESPONSIVO: empilha no mobile */
@@ -334,6 +369,166 @@
             }
 
         }
+
+
+        .tratamentos {
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            /* espaçamento interno */
+            background: radial-gradient(circle, #ffffff 60%, #752700 190%);
+            /* degrade suave igual da imagem */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .conteudo-tratamentos {
+            text-align: center;
+            max-width: 100%;
+            /* limita a largura do texto */
+            margin: 0 auto;
+        }
+
+        .conteudo-tratamentos .subtitulo {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #7c3a1f;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .conteudo-tratamentos h2 {
+            font-family: 'Inria Serif', serif;
+            font-size: 32px;
+            color: #7c3a1f;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 100;
+        }
+
+        .conteudo-tratamentos h2 em {
+            font-style: italic;
+            font-weight: 700;
+        }
+
+        .conteudo-tratamentos p {
+            font-family: 'Inria Serif', serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            width: 700px;
+            margin: 0 auto;
+            margin-top: 15px;
+        }
+
+        .conteudo-tratamentos p em {
+            font-style: italic;
+            font-weight: 800;
+        }
+
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            /* evita scroll horizontal */
+            display: flex;
+            justify-content: center;
+            /* centraliza o carrossel */
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            /* espaço entre os cards */
+        }
+
+        .card {
+            width: 300px;
+            height: 470px;
+            margin-top: 50px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            /* impede de encolher */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* ajusta a imagem sem distorcer */
+            display: block;
+        }
+
+        @media (max-width: 1024px) {
+            .conteudo-tratamentos h2 {
+                font-size: 26px;
+                max-width: 90%;
+            }
+
+            .conteudo-tratamentos p {
+                width: 90%;
+                font-size: 15px;
+            }
+
+            .card {
+                width: 260px;
+                height: 400px;
+            }
+        }
+
+        /* Celulares grandes */
+        @media (max-width: 900px) {
+            .tratamentos {
+                padding: 60px 15px;
+            }
+
+            .conteudo-tratamentos h2 {
+                font-size: 22px;
+            }
+
+            .conteudo-tratamentos p {
+                width: 100%;
+                font-size: 14px;
+            }
+
+            .carousel-track {
+                gap: 12px;
+            }
+
+            .card {
+                width: 220px;
+                height: 340px;
+            }
+
+        }
+
+        /* Celulares pequenos */
+        @media (max-width: 480px) {
+            .tratamentos {
+                padding: 40px 10px;
+            }
+
+            .conteudo-tratamentos h2 {
+                font-size: 20px;
+            }
+
+            .conteudo-tratamentos p {
+                font-size: 13px;
+            }
+
+            .card {
+                width: 180px;
+                height: 280px;
+            }
+        }
     </style>
 </head>
 
@@ -399,6 +594,43 @@
             </div>
         </div>
     </header>
+
+    <section class="tratamentos">
+        <div class="conteudo-tratamentos">
+            <span class="subtitulo">[NOSSOS TRATAMENTOS]</span>
+            <h2><em>Mais do que tratamentos</em>, uma transformação na sua rotina</h2>
+            <p>
+                <em>Aqui, você encontra mais</em> disposição para o dia a dia, mais equilíbrio para o corpo e a mente,
+                e mais confiança para sorrir e se movimentar sem limitações.
+                <em>O resultado? Uma rotina leve, saudável e cheia de propósito.</em>
+            </p>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="card">
+                    <img src="assets/img/card.png" alt="Pilates">
+                </div>
+                <div class="card">
+                    <img src="assets/img/card.png" alt="Pilates">
+                </div>
+                <div class="card">
+                    <img src="assets/img/card.png" alt="Pilates">
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-button-2">
+            <a href="#" class="btn-2">
+                FALE CONOSCO
+                <img src="assets/img/btn-02.svg" alt="Seta">
+            </a>
+        </div>
+
+
+
+
+    </section>
 
     <script src="script.js"></script>
 </body>
