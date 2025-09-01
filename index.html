@@ -172,6 +172,8 @@
             height: auto
         }
 
+
+
         /* RESPONSIVO: empilha no mobile */
         @media (min-width: 901px) {
             .blur {
@@ -211,11 +213,88 @@
 
         }
 
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* MENU MOBILE */
+        .menu-mobile {
+            position: absolute;
+            top: 100px;
+            /* abaixo da nav */
+            right: 20px;
+            width: 200px;
+            background: #3B1E15;
+            border-radius: 10px;
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+            z-index: 99;
+            font-family: 'Manrope', sans-serif;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .menu-mobile a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .menu-mobile a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #E5E1E6;
+        }
+
+        .menu-mobile a:hover {
+            color: #E5E1E6;
+        }
+
+        .menu-mobile.active {
+            max-height: 500px;
+            /* altura suficiente para mostrar os links */
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
         /* RESPONSIVO: empilha no mobile */
         @media (max-width: 900px) {
-            nav {
+
+            .hamburger {
+                display: flex;
+            }
+
+            .menu {
                 display: none;
-                /* 🚫 Esconde a nav bar no mobile */
+            }
+
+            nav {
+                width: 100%;
+                height: 8%;
+                margin-top: 0;
+            }
+
+            .menu {
+                display: none;
             }
 
             .hero-row {
@@ -228,32 +307,30 @@
                 align-self: flex-start
             }
 
-            @media (max-width: 900px) {
-                .blur {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 520px;
-                    /* 🔥 ajuste o valor até bater com a linha azul */
-                    background-color: rgba(0, 0, 0, 0.05);
-                    border-bottom: 2px solid rgba(251, 251, 251, .29);
-                    backdrop-filter: blur(32.65px) brightness(100%);
-                    -webkit-backdrop-filter: blur(32.65px) brightness(100%);
-                    z-index: 1;
-                }
+            .blur {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 550px;
+                /* 🔥 ajuste o valor até bater com a linha azul */
+                background-color: rgba(0, 0, 0, 0.05);
+                border-bottom: 2px solid rgba(251, 251, 251, .29);
+                backdrop-filter: blur(32.65px) brightness(100%);
+                -webkit-backdrop-filter: blur(32.65px) brightness(100%);
+                z-index: 1;
+            }
 
-                header {
-                    position: relative;
-                    width: 100%;
-                    min-height: 100vh;
-                    background: url("./assets/img/header.png") center/cover no-repeat;
-                    overflow: hidden;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    padding: 32px 20px;
-                }
+            header {
+                position: relative;
+                width: 100%;
+                min-height: 100vh;
+                background: url("./assets/img/header.png") center/cover no-repeat;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 32px 20px;
             }
 
         }
@@ -265,10 +342,12 @@
         <div class="blur"></div>
 
         <!-- NAVBAR -->
+        <!-- dentro da NAV -->
         <nav>
             <div class="logo">
                 <img src="assets/img/logo.png" alt="Logo">
             </div>
+
             <div class="menu">
                 <a href="#">Quem somos</a>
                 <a href="#">O que é</a>
@@ -276,7 +355,25 @@
                 <a href="#">Equipe</a>
                 <a href="#">Parcerias</a>
             </div>
+
+            <!-- Botão hamburguer (aparece só no mobile) -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
+
+        <!-- Menu mobile escondido -->
+        <div class="menu-mobile" id="menu-mobile">
+            <a href="#">Quem somos</a>
+            <a href="#">O que é</a>
+            <a href="#">Serviços</a>
+            <a href="#">Equipe</a>
+            <a href="#">Parcerias</a>
+        </div>
+
+
 
         <!-- CONJUNTO CENTRALIZADO: textos à esquerda + botão à direita -->
         <div class="hero-row">
@@ -302,6 +399,8 @@
             </div>
         </div>
     </header>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
