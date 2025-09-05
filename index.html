@@ -812,15 +812,15 @@
 
         .logo-central {
             position: absolute;
-            left: 80%;
-            bottom: -220px;
+            left: 75%;
+            bottom: -110px;
             /* metade da logo entra na seção de baixo */
             transform: translateX(-50%);
             z-index: 10;
         }
 
         .logo-central img {
-            max-width: 350px;
+            max-width: 200px;
             height: auto;
             transition: transform 0.3s ease;
         }
@@ -832,7 +832,7 @@
 
         @media (max-width: 900px) {
             .logo-central img {
-                max-width:150px;
+                display: none;
             }
 
              .logo-central {
@@ -848,7 +848,7 @@
 
         @media (max-width: 600px) {
             .logo-central img {
-                max-width: 90px;
+                display: none;
             }
 
             .logo-central {
