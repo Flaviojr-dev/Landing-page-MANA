@@ -6,38 +6,33 @@ hamburger.addEventListener("click", () => {
 });
 
 
-// ...existing code...
-
 const track = document.querySelector('.carousel-track');
 let cards = Array.from(document.querySelectorAll('.card'));
-const dots = Array.from(document.querySelectorAll('.dot'));
-
-// ...existing code...
-// ...existing code...
-
 let visibleCards = getVisibleCards();
 let currentIndex = visibleCards;
 
 function getVisibleCards() {
     if (window.innerWidth <= 600) return 1;      // Mobile
-    if (window.innerWidth <= 900) return 2;      // Tablet
+    if (window.innerWidth <= 1024) return 2;     // Tablet
     return 3;                                    // Desktop
 }
 
 function setupCarousel() {
-    // Remove clones se existirem
+    // Remove clones antigos
     document.querySelectorAll('.card.clone').forEach(clone => clone.remove());
 
     cards = Array.from(document.querySelectorAll('.card:not(.clone)'));
     visibleCards = getVisibleCards();
     currentIndex = visibleCards;
 
-    // Clonar primeiros e últimos N cards
+    // Clonar últimos N para o início
     const clonesStart = cards.slice(-visibleCards).map(card => {
         const clone = card.cloneNode(true);
         clone.classList.add('clone');
         return clone;
     });
+
+    // Clonar primeiros N para o fim
     const clonesEnd = cards.slice(0, visibleCards).map(card => {
         const clone = card.cloneNode(true);
         clone.classList.add('clone');
@@ -56,18 +51,11 @@ function updateCarousel(animate = true) {
     track.style.transition = animate ? "transform 0.6s ease" : "none";
     track.style.transform = `translateX(${offset}%)`;
 
-    // Ativar destaque no card central
+    // Destaque no card central
     cards.forEach(card => card.classList.remove('active'));
     const centerIndex = currentIndex + Math.floor(visibleCards / 2);
     if (cards[centerIndex]) {
         cards[centerIndex].classList.add('active');
-    }
-
-    // Atualizar dots
-    dots.forEach(dot => dot.classList.remove('active'));
-    const dotIndex = (currentIndex - visibleCards + dots.length) % dots.length;
-    if (dots[dotIndex]) {
-        dots[dotIndex].classList.add('active');
     }
 }
 
@@ -95,13 +83,77 @@ function prevSlide() {
     }
 }
 
-// Auto play
+// Auto play infinito
 setInterval(nextSlide, 3000);
 
-// Responsividade ao redimensionar
+// Atualiza no resize
 window.addEventListener('resize', setupCarousel);
 
 // Inicialização
 setupCarousel();
 
-// ...existing code...
+const carrosel = document.getElementById("carrosel");
+const slides = document.querySelectorAll(".googledep");
+const pontos = document.querySelectorAll(".ponto");
+
+let index = 1;
+const totalSlides = slides.length;
+
+// Clonar primeiro e último
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+
+firstClone.id = "first-clone";
+lastClone.id = "last-clone";
+
+carrosel.appendChild(firstClone);
+carrosel.insertBefore(lastClone, carrosel.firstChild);
+
+const allSlides = document.querySelectorAll(".googledep");
+
+function getSlideWidth() {
+    return document.querySelector(".googledep").offsetWidth + 20; // largura + gap
+}
+
+function setPosition() {
+    carrosel.style.transform = `translateX(${-getSlideWidth() * index}px)`;
+}
+
+// Posição inicial
+setPosition();
+
+function atualizarIndicadores() {
+    pontos.forEach((p, i) => {
+        p.classList.toggle("ativado", i === (index - 1 + totalSlides) % totalSlides);
+    });
+}
+
+function proximoSlide() {
+    if (index >= allSlides.length - 1) return;
+    index++;
+    carrosel.style.transition = "transform 0.6s ease";
+    setPosition();
+    atualizarIndicadores();
+}
+
+carrosel.addEventListener("transitionend", () => {
+    if (allSlides[index].id === "first-clone") {
+        carrosel.style.transition = "none"; // sem animação
+        index = 1;
+        setPosition();
+    }
+    if (allSlides[index].id === "last-clone") {
+        carrosel.style.transition = "none"; // sem animação
+        index = totalSlides;
+        setPosition();
+    }
+});
+
+setInterval(proximoSlide, 3000);
+atualizarIndicadores();
+
+// Corrige redimensionamento da tela
+window.addEventListener("resize", () => {
+    carrosel.style.transition = "none";
+    setPosition();
+});

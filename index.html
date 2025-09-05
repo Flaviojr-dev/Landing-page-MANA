@@ -246,22 +246,22 @@
             }
 
             .btn-2 {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 48px;
-            border: 1px solid #752700;
-            border-radius: 999px;
-            background: transparent;
-            color: #752700;
-            text-decoration: none;
-            font-family: 'Manrope', sans-serif;
-            font-weight: 600;
-            font-size: 16px;
-            gap: 10px;
-            transition: background .25s ease;
-            margin-top: 50px;
-        }
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 14px 48px;
+                border: 1px solid #752700;
+                border-radius: 999px;
+                background: transparent;
+                color: #752700;
+                text-decoration: none;
+                font-family: 'Manrope', sans-serif;
+                font-weight: 600;
+                font-size: 16px;
+                gap: 10px;
+                transition: background .25s ease;
+                margin-top: 50px;
+            }
 
         }
 
@@ -427,7 +427,7 @@
 
             }
 
-            
+
 
 
         }
@@ -665,7 +665,7 @@
             transition: all 0.3s ease;
         }
 
-        .seta:hover {
+        .seta:hover {   
             background: #752700;
             color: #fff;
         }
@@ -690,6 +690,11 @@
                 text-align: center;
             }
 
+               .depoimentos .textos {
+            margin-top: 0px;
+            /* ajuste o valor conforme desejar */
+        }
+
             .depoimentos-topo {
                 align-items: center;
                 text-align: center;
@@ -708,6 +713,99 @@
                 width: 35px;
                 height: 35px;
             }
+        }
+
+        .carroselgoogle {
+            position: relative;
+            width: 100%;
+            /* ocupar toda largura */
+            max-width: 1200px;
+            /* limite maior e mais flexível */
+            padding: 20px 0;
+            margin: 50px auto 30px;
+            overflow: hidden;
+        }
+
+        .carroselgoogle2 {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.6s ease;
+            transition: transform 0.6s ease;
+            will-change: transform;
+        }
+
+        .googledep {
+            flex: 0 0 calc(33.333% - 20px);
+            /* 3 por linha no desktop */
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .googledep img {
+            width: 100%;
+            height: auto;
+            /* ajusta melhor para imagens */
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Destaque para o card central */
+       
+
+        .indicadores {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .ponto {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .ponto.ativado {
+            background: #5C2B14;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 1024px) {
+            .googledep {
+                flex: 0 0 calc(50% - 20px);
+                /* 2 cards por vez no tablet */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .googledep {
+                flex: 0 0 100%;
+                /* 1 card por vez no mobile */
+            }
+
+            .googledep img {
+            width: 300px;
+            height: auto;
+            margin: 0 auto;
+            /* ajusta melhor para imagens */
+            object-fit: cover;
+            display: block;
+        }
+
+        .carroselgoogle {
+            position: relative;
+            width: 100%;
+            /* ocupar toda largura */
+            max-width: 1200px;
+            /* limite maior e mais flexível */
+            padding: 20px 0;
+            margin: 20px auto 20px;
+            overflow: hidden;
+        }
+
         }
     </style>
 </head>
@@ -837,18 +935,39 @@
                 <span class="subtitulo">[ DEPOIMENTOS ]</span>
                 <h2><em>Histórias reais</em> de quem já vive a transformação com a gente</h2>
             </div>
-            <div class="navegacao">
-                <img src="assets/img/esquerda.svg" alt="">
-                <img src="assets/img/direita.svg" alt="">
-            </div>
+            
+
+
 
         </div>
+
+        <div class="carroselgoogle">
+            <div class="carroselgoogle2" id="carrosel">
+                <div class="googledep"><img src="assets/img/Review 3.png" alt="Slide 1"></div>
+                <div class="googledep"><img src="assets/img/Review 3.png" alt="Slide 1"></div>
+                <div class="googledep"><img src="assets/img/Review 3.png" alt="Slide 1"></div>
+                <div class="googledep"><img src="assets/img/Review 3.png" alt="Slide 1"></div>
+                <div class="googledep"><img src="assets/img/Review 3.png" alt="Slide 1"></div>
+                <div class="googledep"><img src="assets/img/Review 3.png" alt="Slide 1"></div>
+            </div>
+        </div>
+
+        <div class="indicadores" id="indicadores">
+            <div class="ponto ativado"></div>
+            <div class="ponto"></div>
+            <div class="ponto"></div>
+            <div class="ponto"></div>
+            <div class="ponto"></div>
+            <div class="ponto"></div>
+        </div>
+
 
 
     </section>
 
 
     <script src="script.js"></script>
+
 </body>
 
 </html>
