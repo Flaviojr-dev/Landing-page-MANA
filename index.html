@@ -603,7 +603,7 @@
 
         .depoimentos {
             width: 100%;
-            height: 729px;
+            height: auto;
             /* igual ao seu print */
             background: linear-gradient(90deg,
                     rgba(117, 39, 0, 1) 0%,
@@ -665,7 +665,7 @@
             transition: all 0.3s ease;
         }
 
-        .seta:hover {   
+        .seta:hover {
             background: #752700;
             color: #fff;
         }
@@ -690,10 +690,10 @@
                 text-align: center;
             }
 
-               .depoimentos .textos {
-            margin-top: 0px;
-            /* ajuste o valor conforme desejar */
-        }
+            .depoimentos .textos {
+                margin-top: 0px;
+                /* ajuste o valor conforme desejar */
+            }
 
             .depoimentos-topo {
                 align-items: center;
@@ -751,7 +751,7 @@
         }
 
         /* Destaque para o card central */
-       
+
 
         .indicadores {
             display: flex;
@@ -787,25 +787,78 @@
             }
 
             .googledep img {
-            width: 300px;
+                width: 300px;
+                height: auto;
+                margin: 0 auto;
+                /* ajusta melhor para imagens */
+                object-fit: cover;
+                display: block;
+            }
+
+            .carroselgoogle {
+                position: relative;
+                width: 100%;
+                /* ocupar toda largura */
+                max-width: 1200px;
+                /* limite maior e mais flexível */
+                padding: 20px 0;
+                margin: 20px auto 20px;
+                overflow: hidden;
+            }
+
+        }
+
+
+
+        .logo-central {
+            position: absolute;
+            left: 80%;
+            bottom: -220px;
+            /* metade da logo entra na seção de baixo */
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .logo-central img {
+            max-width: 350px;
             height: auto;
-            margin: 0 auto;
-            /* ajusta melhor para imagens */
-            object-fit: cover;
-            display: block;
+            transition: transform 0.3s ease;
         }
 
-        .carroselgoogle {
-            position: relative;
-            width: 100%;
-            /* ocupar toda largura */
-            max-width: 1200px;
-            /* limite maior e mais flexível */
-            padding: 20px 0;
-            margin: 20px auto 20px;
-            overflow: hidden;
+        .logo-central img:hover {
+            transform: translateY(-15px);
+            /* sobe 15px */
         }
 
+        @media (max-width: 900px) {
+            .logo-central img {
+                max-width: 250px;
+            }
+
+             .logo-central {
+                position: absolute;
+                left: 90%;
+                bottom: -155px;
+                /* metade da logo entra na seção de baixo */
+                transform: translateX(-50%);
+                z-index: 10;
+            }
+            
+        }
+
+        @media (max-width: 600px) {
+            .logo-central img {
+                max-width: 150px;
+            }
+
+            .logo-central {
+                position: absolute;
+                left: 90%;
+                bottom: -95px;
+                /* metade da logo entra na seção de baixo */
+                transform: translateX(-50%);
+                z-index: 10;
+            }
         }
     </style>
 </head>
@@ -873,6 +926,10 @@
         </div>
     </header>
 
+    <div class="logo-central">
+        <img src="assets/img/logo-ciruclo.png" alt="Logo">
+    </div>
+
     <section class="tratamentos">
         <div class="conteudo-tratamentos">
             <span class="subtitulo">[NOSSOS TRATAMENTOS]</span>
@@ -935,7 +992,7 @@
                 <span class="subtitulo">[ DEPOIMENTOS ]</span>
                 <h2><em>Histórias reais</em> de quem já vive a transformação com a gente</h2>
             </div>
-            
+
 
 
 
