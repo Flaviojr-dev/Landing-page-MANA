@@ -835,7 +835,7 @@
                 display: none;
             }
 
-             .logo-central {
+            .logo-central {
                 position: absolute;
                 left: 90%;
                 bottom: -80px;
@@ -843,7 +843,7 @@
                 transform: translateX(-50%);
                 z-index: 10;
             }
-            
+
         }
 
         @media (max-width: 600px) {
@@ -859,6 +859,171 @@
                 transform: translateX(-50%);
                 z-index: 10;
             }
+        }
+
+        .about-section {
+            position: relative;
+            padding: 100px 0;
+            font-family: 'Inria Serif', serif;
+            color: #752700;
+            overflow: hidden;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .about-text {
+            width: 40%;
+            z-index: 2;
+            position: relative;
+        }
+
+        .about-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #752700;
+        }
+
+        .about-title {
+            font-size: 28px;
+            margin: 10px 0 20px;
+            font-weight: 600;
+            color: #752700;
+            font-style: italic;
+
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #752700;
+        }
+
+        /* Texto enorme no fundo */
+        .about-bg-text {
+            position: absolute;
+            right: 0;
+            left: 750px;
+            bottom: 50px;
+            font-family: 'Bellavoir Delight PERSONAL USE', serif;
+            font-size: 550px;
+            font-weight: 400;
+            line-height: 1;
+            background: linear-gradient(90deg, #303137, #CCA649);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 1;
+            white-space: nowrap;
+        }
+
+        .btn-3 {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 48px;
+            border: 1px solid #752700;
+            border-radius: 999px;
+            background: transparent;
+            color: #752700;
+            text-decoration: none;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            gap: 10px;
+            transition: background .25s ease;
+            margin-top: 10px;
+        }
+
+        /* ================= RESPONSIVIDADE ================= */
+
+        /* Tablet */
+        @media (max-width: 900px) {
+            .about-container {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 40px;
+            }
+
+            .about-text {
+                width: 100%;
+                margin-bottom: 50px;
+            }
+
+            .about-bg-text {
+                position: relative;
+                font-size: 220px;
+                right: auto;
+                bottom: auto;
+                align-self: flex-end;
+            }
+        }
+
+        /* Celular */
+        @media (max-width: 600px) {
+            .about-container {
+                padding: 0 20px;
+                text-align: center;
+            }
+
+            .about-text {
+                width: 100%;
+                text-align: center;
+            }
+
+            .about-title {
+                font-size: 22px;
+            }
+
+            .about-text p {
+                font-size: 15px;
+            }
+
+            .about-bg-text {
+                font-size: 120px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0.1;
+                z-index: 0;
+            }
+
+            .hero-button-2 {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+
+
+            .about-img-akisa img {
+
+                display: none !important;
+            }
+        }
+
+        .about-img-akisa {
+            width: 780px;
+            max-width: 50vw;
+            margin-left: 80px;
+            z-index: 2;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .about-img-akisa img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
@@ -1021,6 +1186,53 @@
 
 
     </section>
+
+    <!-- ================= SEÇÃO QUEM SOU EU ================= -->
+    <section class="about-section">
+        <div class="about-container">
+
+            <!-- Texto -->
+            <div class="about-text">
+                <span class="about-subtitle">[ FUNDADORA ]</span>
+                <h2 class="about-title">Quem sou eu?</h2>
+                <p>
+                    Sou Akisa Gomes, fisioterapeuta com 8 anos de experiência, especializada em Pilates e Fisioterapia
+                    DermatoFuncional.
+                </p>
+                <p>
+                    Minha missão é promover saúde e bem-estar através do movimento consciente e terapias integradas.
+                </p>
+                <p>
+                    Ao longo da minha jornada, desenvolvi um olhar atento e sensível para o tratamento de dores
+                    crônicas, utilizando o movimento como principal ferramenta de transformação.
+                </p>
+                <p>
+                    Fundadora da Maná, idealizei esse espaço com o propósito de acolher, tratar e inspirar. Acredito que
+                    o corpo tem uma sabedoria única e, quando guiado com respeito e técnica, é capaz de se curar e
+                    florescer.
+                </p>
+
+                <!-- Botão -->
+                <div class="hero-button-3">
+                    <a href="#" class="btn-3">
+                        FALE CONOSCO
+                        <img src="assets/img/btn-02.svg" alt="Seta">
+                    </a>
+                </div>
+            </div>
+
+            <div class="about-img-akisa">
+                <img src="assets/img/quemsoueu.png" alt="Akisa Gomes">
+            </div>
+        </div>
+
+        </div>
+        <!-- Texto grande no fundo -->
+        <div class="about-bg-text">
+            akisa
+        </div>
+    </section>
+
 
 
     <script src="script.js"></script>
