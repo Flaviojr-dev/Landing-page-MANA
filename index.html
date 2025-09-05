@@ -17,7 +17,7 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inria Serif', serif;
             color: #fff
         }
 
@@ -157,7 +157,7 @@
             text-decoration: none;
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 12px;
             gap: 10px;
             transition: background .25s ease;
         }
@@ -190,7 +190,7 @@
             text-decoration: none;
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 12px;
             gap: 10px;
             transition: background .25s ease;
             margin-top: 50px;
@@ -244,6 +244,24 @@
                 transition: background .25s ease;
                 margin-top: 257px;
             }
+
+            .btn-2 {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 48px;
+            border: 1px solid #752700;
+            border-radius: 999px;
+            background: transparent;
+            color: #752700;
+            text-decoration: none;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            gap: 10px;
+            transition: background .25s ease;
+            margin-top: 50px;
+        }
 
         }
 
@@ -359,7 +377,6 @@
 
         /* Indicadores */
         .indicators {
-            margin: 20px 0;
             display: flex;
             justify-content: center;
             gap: 8px;
@@ -401,9 +418,7 @@
                 flex: 0 0 100%;
                 width: 100%;
                 margin-top: 0;
-                padding: 15px;
                 height: 100%;
-                margin-bottom: 0;
                 /* Mobile: 1 card */
             }
 
@@ -411,6 +426,10 @@
                 gap: 0;
 
             }
+
+            
+
+
         }
 
 
@@ -480,7 +499,7 @@
             margin: 0 auto;
             padding: 80px 20px;
             /* espaçamento interno */
-            background: radial-gradient(circle, #ffffff 60%, #752700 490%);
+            background: radial-gradient(circle, #ffffff 60%, #752700 330%);
             /* degrade suave igual da imagem */
             display: flex;
             justify-content: center;
@@ -580,6 +599,115 @@
                 font-size: 13px;
             }
 
+        }
+
+        .depoimentos {
+            width: 100%;
+            height: 729px;
+            /* igual ao seu print */
+            background: linear-gradient(90deg,
+                    rgba(117, 39, 0, 1) 0%,
+                    rgba(117, 39, 0, 0.1) 0%);
+        }
+
+        .depoimentos-topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .depoimentos .textos {
+            margin-top: 60px;
+            /* ajuste o valor conforme desejar */
+        }
+
+        .depoimentos .subtitulo {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #752700;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .depoimentos h2 {
+            font-size: 32px;
+            font-weight: normal;
+            max-width: 470px;
+            line-height: 1.2;
+            color: #752700;
+
+        }
+
+        .depoimentos h2 em {
+            font-style: italic;
+            font-weight: bold;
+            color: #752700;
+        }
+
+        .navegacao {
+            display: flex;
+            gap: 10px;
+        }
+
+        .seta {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #752700;
+            border-radius: 50%;
+            background: transparent;
+            color: #752700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .seta:hover {
+            background: #752700;
+            color: #fff;
+        }
+
+        @media (max-width: 1024px) {
+            .depoimentos {
+                padding: 40px 20px;
+            }
+
+            .depoimentos-topo {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navegacao {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .depoimentos {
+                text-align: center;
+            }
+
+            .depoimentos-topo {
+                align-items: center;
+                text-align: center;
+            }
+
+            .depoimentos h2 {
+                max-width: 100%;
+                font-size: 20px;
+            }
+
+            .navegacao {
+                justify-content: center;
+            }
+
+            .navegacao img {
+                width: 35px;
+                height: 35px;
+            }
         }
     </style>
 </head>
@@ -702,6 +830,23 @@
 
 
     </section>
+
+    <section class="depoimentos">
+        <div class="depoimentos-topo">
+            <div class="textos">
+                <span class="subtitulo">[ DEPOIMENTOS ]</span>
+                <h2><em>Histórias reais</em> de quem já vive a transformação com a gente</h2>
+            </div>
+            <div class="navegacao">
+                <img src="assets/img/esquerda.svg" alt="">
+                <img src="assets/img/direita.svg" alt="">
+            </div>
+
+        </div>
+
+
+    </section>
+
 
     <script src="script.js"></script>
 </body>
