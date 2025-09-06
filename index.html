@@ -944,71 +944,76 @@
 
         /* ================= RESPONSIVIDADE ================= */
 
-        /* Tablet */
         @media (max-width: 900px) {
+
+            /* Esconde o texto grande AKISA no fundo */
+            .about-bg-text {
+                display: none;
+            }
+
+            /* Empilha a imagem acima do texto, igual ao mobile */
             .about-container {
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 0 40px;
+                align-items: center;
+                padding: 0 24px;
+            }
+
+
+            .about-img-akisa .img-desktop {
+                display: none !important;
+            }
+
+            .about-img-akisa {
+                order: -1;
+                width: 95vw;
+                max-width: 99vw;
+                margin: 0 auto 16px auto;
+                justify-content: center;
+                display: flex;
+            }
+
+            .about-img-akisa .img-mobile {
+                display: block !important;
+                width: 50vw;
+                max-width: 95vw;
+                margin: 0px 0px 0px 220px;
+                height: auto;
             }
 
             .about-text {
-                width: 100%;
-                margin-bottom: 50px;
+                width: 70%;
+                margin-bottom: 24px;
+                text-align: left;
             }
+        }
 
-            .about-bg-text {
-                position: relative;
-                font-size: 220px;
-                right: auto;
-                bottom: auto;
-                align-self: flex-end;
-            }
+        .about-img-akisa .img-mobile {
+            display: none;
         }
 
         /* Celular */
         @media (max-width: 600px) {
-            .about-container {
-                padding: 0 20px;
-                text-align: center;
-            }
-
-            .about-text {
-                width: 100%;
-                text-align: center;
-            }
-
-            .about-title {
-                font-size: 22px;
-            }
-
-            .about-text p {
-                font-size: 15px;
-            }
-
-            .about-bg-text {
-                font-size: 120px;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                opacity: 0.1;
-                z-index: 0;
-            }
-
-            .hero-button-2 {
-                display: flex;
+            .about-img-akisa {
+                order: -1;
+                width: 95vw;
+                max-width: 99vw;
+                margin: 0 auto 16px auto;
                 justify-content: center;
-                margin-top: 20px;
+                display: flex;
             }
 
+            .about-img-akisa .img-mobile {
+                display: block;
+                width: 300px;
+                height: auto;
+                margin: 0 50px 0px 0px;
+            }
 
-
-            .about-img-akisa img {
-
-                display: none !important;
+            .about-img-akisa .img-desktop {
+                display: none;
             }
         }
+
 
         .about-img-akisa {
             width: 780px;
@@ -1222,7 +1227,9 @@
             </div>
 
             <div class="about-img-akisa">
-                <img src="assets/img/quemsoueu.png" alt="Akisa Gomes">
+                <img src="assets/img/quemsoueu.png" alt="Akisa Gomes" class="img-desktop">
+                <img src="assets/img/Group 1171279587.png" alt="Akisa Gomes Mobile" class="img-mobile">
+
             </div>
         </div>
 
