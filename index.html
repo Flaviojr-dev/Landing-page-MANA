@@ -603,7 +603,7 @@
 
         .depoimentos {
             width: 100%;
-            height: auto;
+            height: 700px;
             /* igual ao seu print */
             background: linear-gradient(90deg,
                     rgba(117, 39, 0, 1) 0%,
@@ -688,7 +688,9 @@
         @media (max-width: 768px) {
             .depoimentos {
                 text-align: center;
+                height: 100%;
             }
+            
 
             .depoimentos .textos {
                 margin-top: 0px;
@@ -973,10 +975,10 @@
             }
 
             .about-img-akisa .img-mobile {
-                display: block ;
+                display: block;
                 width: 50vw;
                 max-width: 95vw;
-                margin: 0px 0px 0px 220px ;
+                margin: 0px 0px 0px 220px;
                 height: auto;
             }
 
@@ -1035,6 +1037,60 @@
             width: 100%;
             height: auto;
             display: block;
+        }
+
+        .bg-section {
+            background: url("assets/img/last.png") no-repeat center center;
+            background-size: cover;
+            min-height: 100vh;
+            margin-top: -50px;
+            /* ocupa toda a tela */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: #fff;
+            /* texto branco para contraste */
+            text-align: center;
+        }
+
+        .bg-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* camada escura para melhor leitura */
+            z-index: 1;
+        }
+
+        @media (max-width: 600px) {
+            .bg-section {
+                background: url("assets/img/last-mobile.png") no-repeat center center;
+                background-size: cover;
+                min-height: 100vh;
+                margin-top: -50px;
+                /* ocupa toda a tela */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+               
+            }
+
+            .bg-section .content {
+                width: 100vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+            }
+
+            .bg-section .content::before,
+            .bg-section::before {
+                display: none !important;
+            }
         }
     </style>
 </head>
@@ -1246,6 +1302,11 @@
         </div>
     </section>
 
+    <section class="bg-section">
+        <div class="content">
+            <img src="assets/img/last-mobilr" alt="" class="bg-mobile-img">
+        </div>
+    </section>
 
 
     <script src="script.js"></script>
