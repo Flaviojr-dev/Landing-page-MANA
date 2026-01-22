@@ -1,3 +1,16 @@
+// Rolagem suave para âncoras do menu
+document.querySelectorAll('.menu a, .menu-mobile a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+});
 const hamburger = document.getElementById("hamburger");
 const menuMobile = document.getElementById("menu-mobile");
 
